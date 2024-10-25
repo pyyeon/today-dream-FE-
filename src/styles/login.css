@@ -1,0 +1,117 @@
+.login-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../assets/img-background-night.png");
+    background-size: cover; /* 전체 배경 크기 맞춤 */
+    background-color: #340C62;
+    background-repeat: no-repeat;
+}
+
+.login-input {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+.signup-validation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.signup-validation-text {
+    margin-left: 20px;
+    font-size: 18px;
+    color: red;
+}
+.logBtn{
+    position: relative;
+    bottom: 80px;
+}
+.loginoption{
+    position: absolute;
+    
+}
+.style-timer {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    font-size: 20px;
+    color: red;
+}
+
+.email-margin {
+    margin-top: 20px;
+}
+
+h5 {
+    margin-left: 10px;
+}
+
+.blank {
+    height: 10px;
+}
+
+#signup-confirm {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cat-paw-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginbigbox {
+    background: #f3f3f3;
+    border-radius: 12px;
+    font-family: "PF-StartDust-Bold";
+    width: 360px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    height: 100%;
+    margin-top: 20px;
+    font-size: 10px;
+    opacity: 0.7;
+    border: 2px solid #ff69b4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media all and (max-width:430px) {
+    .login-background {
+        height: 100vh;
+        background-image: url("../assets/img-background-night.png");
+        background-size: cover; /* 전체 배경 크기 맞춤 */
+        background-color: #340C62;
+        background-repeat: no-repeat;
+    }
+    
+    .loginbigbox {
+        width: 100vw;
+        padding: 10px;
+        height: 100%;
+        margin-top: 20px;
+    }
+
+    .cat-paw-button {
+        margin-top: 10vw;
+    }
+
+    #signup-confirm {
+        margin-top: 20vw;
+    }
+    .loginoption{
+        left: -50px;
+        
+    }
+}

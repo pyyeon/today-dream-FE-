@@ -1,0 +1,850 @@
+.background-morning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding-bottom: 50px;
+    background-color: #0A2E0A;
+    background-image: url("../assets/img-background-morning.png");
+}
+
+.bottom-button {
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+}
+
+.share-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.blank {
+    width: 50px;
+
+}
+
+.result-cat {
+    margin-top: 10px;
+    background-image: url("../assets/rulru-result.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 500px;
+    /* 화면의 1/4 차지하도록 설정 */
+    background-position: center;
+    /* 중앙에 위치하도록 설정 */
+    background-size: contain;
+    /* 이미지의 비율을 유지하며 크기를 조절 */
+}
+
+.result-message-main {
+    position: relative;
+    background: #f3f3f3;
+    border-radius: 12px;
+    font-family: "PF-StartDust-Bold";
+    width: 360px;
+    /* .result-cat의 1/3 크기로 설정 */
+    padding: 10px;
+    /* 내부 여백 추가 */
+    box-sizing: border-box;
+    /* 패딩을 포함한 박스 모델 */
+    display: flex;
+    /* 플렉스 박스 사용 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    height: 190px;
+    /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+    margin-top: -40px;
+    margin-bottom: -20px;
+    /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+    font-size: 18px;
+    border: 2px solid #ff69b4;
+    /* 핑크색 테두리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 부드러운 그림자 효과 */
+}
+
+.result-message-main::before {
+    content: '';
+    /* 가상의 요소 생성 */
+    position: absolute;
+    bottom: -5px;
+    /* 위쪽으로 위치 조정 */
+    left: 175px;
+    transform: translateX(-50%);
+    /* 가운데 정렬 */
+    width: 365px;
+    /* 너비 조정 */
+    height: 5px;
+    /* 높이 조정 */
+    background: linear-gradient(to right, #d58f75, #d176a4);
+    /* 그라데이션 배경 */
+    border-radius: 12px 12px 0 0;
+    /* 위쪽 모서리 둥글게 */
+}
+.result-message-board {
+    position: relative;
+    background: #f3f3f3;
+    border-radius: 12px;
+    font-family: "PF-StartDust-Bold";
+    width: 360px;
+    /* .result-cat의 1/3 크기로 설정 */
+    padding: 10px;
+    /* 내부 여백 추가 */
+    box-sizing: border-box;
+    /* 패딩을 포함한 박스 모델 */
+    display: flex;
+    /* 플렉스 박스 사용 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    height: 180px;
+    /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+    margin-top: -60px;
+    margin-bottom: -20px;
+    /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+    font-size: 18px;
+    border: 2px solid #ff69b4;
+    /* 핑크색 테두리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 부드러운 그림자 효과 */
+}
+
+.result-message-board::before {
+    content: '';
+    /* 가상의 요소 생성 */
+    position: absolute;
+    bottom: -5px;
+    /* 위쪽으로 위치 조정 */
+    left: 175px;
+    transform: translateX(-50%);
+    /* 가운데 정렬 */
+    width: 365px;
+    /* 너비 조정 */
+    height: 5px;
+    /* 높이 조정 */
+    background: linear-gradient(to right, #d58f75, #d176a4);
+    /* 그라데이션 배경 */
+    border-radius: 12px 12px 0 0;
+    /* 위쪽 모서리 둥글게 */
+}
+
+.result-tinybox {
+    position: relative;
+    background: #f3f3f3;
+    border-radius: 12px;
+    font-family: "PF-StartDust-Bold";
+    width: 300px;
+    /* .result-cat의 1/3 크기로 설정 */
+    padding: 10px;
+    /* 내부 여백 추가 */
+    box-sizing: border-box;
+    /* 패딩을 포함한 박스 모델 */
+    display: flex;
+    /* 플렉스 박스 사용 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    height: 3px;
+    /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+    margin-top: 40px;
+    /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+    font-size: 18px;
+    /* 테두리 추가 및 스타일링 */
+    border: 2px solid #ff69b4;
+    /* 핑크색 테두리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 부드러운 그림자 효과 */
+}
+
+.result-tinybox::before {
+    content: '';
+    /* 가상의 요소 생성 */
+    position: absolute;
+    bottom: -5px;
+    /* 위쪽으로 위치 조정 */
+    left: 148px;
+    transform: translateX(-50%);
+    /* 가운데 정렬 */
+    width: 300px;
+    /* 너비 조정 */
+    height: 5px;
+    /* 높이 조정 */
+    background: linear-gradient(to right, #d58f75, #d176a4);
+    /* 그라데이션 배경 */
+    border-radius: 12px 12px 0 0;
+    /* 위쪽 모서리 둥글게 */
+}
+
+.result-bigbox {
+    position: relative;
+    background: #f3f3f3;
+    border-radius: 12px;
+    font-family: "PF-StartDust-Bold";
+    width: 340px;
+    /* .result-cat의 1/3 크기로 설정 */
+    padding: 15px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    /* 내부 여백 추가 */
+    box-sizing: border-box;
+    /* 패딩을 포함한 박스 모델 */
+    display: flex;
+    /* 플렉스 박스 사용 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    height: max-content;
+    /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+    margin-top: 20px;
+    /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+    font-size: 20px;
+    /* 테두리 추가 및 스타일링 */
+    border: 2px solid #ff69b4;
+    /* 핑크색 테두리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 부드러운 그림자 효과 */
+}
+
+.result-bigbox::before {
+    content: '';
+    /* 가상의 요소 생성 */
+    position: absolute;
+    bottom: -5px;
+    /* 위쪽으로 위치 조정 */
+    left: 167px;
+    transform: translateX(-50%);
+    /* 가운데 정렬 */
+    width: 340px;
+    /* 너비 조정 */
+    height: 5px;
+    /* 높이 조정 */
+    background: linear-gradient(to right, #d58f75, #d176a4);
+    /* 그라데이션 배경 */
+    border-radius: 12px 12px 0 0;
+    /* 위쪽 모서리 둥글게 */
+}
+
+.result-share-modal {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    /* 모달이 다른 요소 위에 표시되도록 */
+}
+
+.login-tinybox {
+    position: relative;
+    background: #f3f3f3;
+    border-radius: 12px;
+    font-family: "PF-StartDust-Bold";
+    width: 150px;
+    /* .result-cat의 1/3 크기로 설정 */
+    padding: 10px;
+    /* 내부 여백 추가 */
+    box-sizing: border-box;
+    /* 패딩을 포함한 박스 모델 */
+    display: flex;
+    /* 플렉스 박스 사용 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    height: 30px;
+    /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+    margin-top: 20px;
+    /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+    font-size: 18px;
+    /* 테두리 추가 및 스타일링 */
+    /* 투명도를 높이기 위해 0.0에서 1.0 사이의 값 설정 (1.0이 불투명) */
+    border: 2px solid #ff69b4;
+    /* 핑크색 테두리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 부드러운 그림자 효과 */
+}
+
+.login-tinybox::before {
+    content: '';
+    /* 가상의 요소 생성 */
+    position: absolute;
+    bottom: -5px;
+    /* 위쪽으로 위치 조정 */
+    left: 74px;
+    transform: translateX(-50%);
+    /* 가운데 정렬 */
+    width: 150px;
+    /* 너비 조정 */
+    height: 5px;
+    /* 높이 조정 */
+    background: linear-gradient(to right, #d58f75, #d176a4);
+    /* 그라데이션 배경 */
+    border-radius: 12px 12px 0 0;
+    /* 위쪽 모서리 둥글게 */
+}
+
+.result-loginbigbox {
+    position: relative;
+    background: #f3f3f3;
+    border-radius: 12px;
+    font-family: "PF-StartDust-Bold";
+    width: 360px;
+    /* .result-cat의 1/3 크기로 설정 */
+    padding: 10px;
+    /* 내부 여백 추가 */
+    box-sizing: border-box;
+    /* 패딩을 포함한 박스 모델 */
+    display: flex;
+    /* 플렉스 박스 사용 */
+    flex-direction: column;
+    /* 자식 요소를 세로로 배치 */
+    align-items: flex-start;
+    /* 왼쪽 정렬 */
+    justify-content: flex-start;
+    /* 세로 방향으로도 위쪽 정렬 */
+    text-align: left;
+    /* 텍스트 왼쪽 정렬 */
+    /* 텍스트 중앙 정렬 */
+    height: 300px;
+    /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+    margin-top: 20px;
+    /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+    font-size: 10px;
+    opacity: 0.7;
+    /* 투명도를 높이기 위해 0.0에서 1.0 사이의 값 설정 (1.0이 불투명) */
+    /* 테두리 추가 및 스타일링 */
+    border: 2px solid #ff69b4;
+    /* 핑크색 테두리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 부드러운 그림자 효과 */
+}
+
+.result-loginbigbox::before {
+    content: '';
+    /* 가상의 요소 생성 */
+    position: absolute;
+    bottom: -5px;
+    /* 위쪽으로 위치 조정 */
+    left: 177px;
+    transform: translateX(-50%);
+    /* 가운데 정렬 */
+    width: 345px;
+    /* 너비 조정 */
+    height: 5px;
+    /* 높이 조정 */
+    background: linear-gradient(to right, #d58f75, #d176a4);
+    /* 그라데이션 배경 */
+    border-radius: 12px 12px 0 0;
+    /* 위쪽 모서리 둥글게 */
+}
+
+.login-findsmallbox {
+    position: relative;
+    background: #f3f3f3;
+    border-radius: 12px;
+    font-family: "PF-StartDust-Bold";
+    width: 208px;
+    /* .result-cat의 1/3 크기로 설정 */
+    padding: 10px;
+    /* 내부 여백 추가 */
+    box-sizing: border-box;
+    /* 패딩을 포함한 박스 모델 */
+    display: flex;
+    /* 플렉스 박스 사용 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    height: 30px;
+    /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+    margin-top: 20px;
+    /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+    font-size: 18px;
+    /* 테두리 추가 및 스타일링 */
+    /* 투명도를 높이기 위해 0.0에서 1.0 사이의 값 설정 (1.0이 불투명) */
+    border: 2px solid #ff69b4;
+    /* 핑크색 테두리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 부드러운 그림자 효과 */
+}
+
+.login-findsmallbox::before {
+    content: '';
+    /* 가상의 요소 생성 */
+    position: absolute;
+    bottom: -5px;
+    /* 위쪽으로 위치 조정 */
+    left: 101px;
+    transform: translateX(-50%);
+    /* 가운데 정렬 */
+    width: 200px;
+    /* 너비 조정 */
+    height: 5px;
+    /* 높이 조정 */
+    background: linear-gradient(to right, #d58f75, #d176a4);
+    /* 그라데이션 배경 */
+    border-radius: 12px 12px 0 0;
+    /* 위쪽 모서리 둥글게 */
+}
+
+.result-font-size-18 {
+    font-size: 18px;
+}
+
+#result-sharing {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    color: white;
+    font-size:20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#result-sharing-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;  /* 공유 버튼들 사이의 간격 */
+    margin-bottom: 20px;
+}
+
+#result-sharing-kakao {
+    background-image: url('../assets/icon-kakao-talk.png');
+    background-size: cover;
+    /* 배경 이미지의 크기 조절 */
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+#result-sharing-insta {
+    background-image: url('../assets/icon-instagram.png');
+    background-size: cover;
+    /* 배경 이미지의 크기 조절 */
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+#result-sharing-x {
+    background-image: url('../assets/icon-twitter.svg');
+    background-size: cover;
+    /* 배경 이미지의 크기 조절 */
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+#result-sharing-link {
+    background-image: url('../assets/icon-link.png');
+    background-size: cover;
+   
+    /* 배경 이미지의 크기 조절 */
+    width: 50px;
+    height: 50px;
+}
+.share-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#result-sharing-save:hover {
+    background-color: #55bbff;  /* 호버 시 약간의 색상 변화 */
+}
+
+/* 공유하기 텍스트 스타일 */
+#result-sharing p {
+    margin-bottom: 15px;  /* 공유하기 텍스트와 공유 버튼들 사이의 간격 */
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+
+@media all and (max-width:430px) {
+    .background-morning {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 1700px;
+        background-color: #0A2E0A;
+        background-image: url("../assets/img-background-morning.png");
+    }
+
+    .bottom-button {
+        display: flex;
+        flex-direction: row;
+        margin-top: 25px;
+        /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+    }
+
+    .blank {
+        width: 50px;
+
+    }
+
+    .result-cat {
+        background-image: url("../assets/rulru-result.png");
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 250vw;
+        margin-top: 6px;
+        /* 화면의 1/4 차지하도록 설정 */
+        background-position: center;
+        /* 중앙에 위치하도록 설정 */
+        background-size: contain;
+        /* 이미지의 비율을 유지하며 크기를 조절 */
+    }
+
+    .result-message-main{
+        position: relative;
+        background: #f3f3f3;
+        border-radius: 12px;
+        font-family: "PF-StartDust-Bold";
+        width: 95vw;
+        /* .result-cat의 1/3 크기로 설정 */
+        padding: 10px;
+        /* 내부 여백 추가 */
+        box-sizing: border-box;
+        /* 패딩을 포함한 박스 모델 */
+        display: flex;
+        /* 플렉스 박스 사용 */
+        align-items: center;
+        /* 세로 중앙 정렬 */
+        justify-content: center;
+        /* 가로 중앙 정렬 */
+        text-align: center;
+        /* 텍스트 중앙 정렬 */
+        height: 60vw;
+        /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+        margin-top: 1vw;
+        margin-bottom: -10vw;
+        /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+        font-size: 18px;
+        border: 2px solid #ff69b4;
+        /* 핑크색 테두리 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* 부드러운 그림자 효과 */
+    }
+
+    .result-message-main::before {
+        content: '';
+        /* 가상의 요소 생성 */
+        position: absolute;
+        bottom: -5px;
+        /* 위쪽으로 위치 조정 */
+        left: 50%;
+        transform: translateX(-50%);
+        /* 가운데 정렬 */
+        width: 100%;
+        /* 너비 조정 */
+        height: 5px;
+        /* 높이 조정 */
+        background: linear-gradient(to right, #d58f75, #d176a4);
+        /* 그라데이션 배경 */
+        border-radius: 12px 12px 0 0;
+        /* 위쪽 모서리 둥글게 */
+    }
+    .result-message-board {
+        position: relative;
+        background: #f3f3f3;
+        border-radius: 12px;
+        font-family: "PF-StartDust-Bold";
+        width: 95vw;
+        /* .result-cat의 1/3 크기로 설정 */
+        padding: 10px;
+        /* 내부 여백 추가 */
+        box-sizing: border-box;
+        /* 패딩을 포함한 박스 모델 */
+        display: flex;
+        /* 플렉스 박스 사용 */
+        align-items: center;
+        /* 세로 중앙 정렬 */
+        justify-content: center;
+        /* 가로 중앙 정렬 */
+        text-align: center;
+        /* 텍스트 중앙 정렬 */
+        height: 52vw;
+        /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+        margin-top: -50vw;
+        margin-bottom: -3vw;
+        /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+        font-size: 18px;
+        border: 2px solid #ff69b4;
+        /* 핑크색 테두리 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* 부드러운 그림자 효과 */
+    }
+
+    .result-message-board::before {
+        content: '';
+        /* 가상의 요소 생성 */
+        position: absolute;
+        bottom: -5px;
+        /* 위쪽으로 위치 조정 */
+        left: 50%;
+        transform: translateX(-50%);
+        /* 가운데 정렬 */
+        width: 100%;
+        /* 너비 조정 */
+        height: 5px;
+        /* 높이 조정 */
+        background: linear-gradient(to right, #d58f75, #d176a4);
+        /* 그라데이션 배경 */
+        border-radius: 12px 12px 0 0;
+        /* 위쪽 모서리 둥글게 */
+    }
+
+    .result-tinybox {
+        position: relative;
+        background: #f3f3f3;
+        border-radius: 12px;
+        font-family: "PF-StartDust-Bold";
+        width: max-content;
+        /* .result-cat의 1/3 크기로 설정 */
+        padding: 10px;
+        /* 내부 여백 추가 */
+        box-sizing: border-box;
+        /* 패딩을 포함한 박스 모델 */
+        display: flex;
+        /* 플렉스 박스 사용 */
+        align-items: center;
+        /* 세로 중앙 정렬 */
+        justify-content: center;
+        /* 가로 중앙 정렬 */
+        text-align: center;
+        /* 텍스트 중앙 정렬 */
+        height: 13vw;
+        /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+        margin-top: 10vw;
+        /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+        font-size: 18px;
+        /* 테두리 추가 및 스타일링 */
+        border: 2px solid #ff69b4;
+        /* 핑크색 테두리 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* 부드러운 그림자 효과 */
+    }
+
+    .result-tinybox::before {
+        content: '';
+        /* 가상의 요소 생성 */
+        position: absolute;
+        bottom: -5px;
+        /* 위쪽으로 위치 조정 */
+        left: 50%;
+        transform: translateX(-50%);
+        /* 가운데 정렬 */
+        width: 100%;
+        /* 너비 조정 */
+        height: 5px;
+        /* 높이 조정 */
+        background: linear-gradient(to right, #d58f75, #d176a4);
+        /* 그라데이션 배경 */
+        border-radius: 12px 12px 0 0;
+        /* 위쪽 모서리 둥글게 */
+    }
+
+    .result-bigbox {
+        position: relative;
+        background: #f3f3f3;
+        border-radius: 12px;
+        font-family: "PF-StartDust-Bold";
+        width: 90vw;
+        /* .result-cat의 1/3 크기로 설정 */
+        padding: 3vw;
+        /* 내부 여백 추가 */
+        box-sizing: border-box;
+        /* 패딩을 포함한 박스 모델 */
+        display: flex;
+        /* 플렉스 박스 사용 */
+        align-items: center;
+        /* 세로 중앙 정렬 */
+        justify-content: center;
+        /* 가로 중앙 정렬 */
+        text-align: center;
+        /* 텍스트 중앙 정렬 */
+        height: 140vw;
+        /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+        margin-top: 14vw;
+        /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+        font-size: 20px;
+        /* 테두리 추가 및 스타일링 */
+        border: 2px solid #ff69b4;
+        /* 핑크색 테두리 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* 부드러운 그림자 효과 */
+    }
+
+    .result-bigbox::before {
+        content: '';
+        /* 가상의 요소 생성 */
+        position: absolute;
+        bottom: -5px;
+        /* 위쪽으로 위치 조정 */
+        left: 50%;
+        transform: translateX(-50%);
+        /* 가운데 정렬 */
+        width: 100%;
+        /* 너비 조정 */
+        height: 5px;
+        /* 높이 조정 */
+        background: linear-gradient(to right, #d58f75, #d176a4);
+        /* 그라데이션 배경 */
+        border-radius: 12px 12px 0 0;
+        /* 위쪽 모서리 둥글게 */
+    }
+
+    .result-share-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        /* 모달이 다른 요소 위에 표시되도록 */
+    }
+
+    .login-tinybox {
+        position: relative;
+        background: #f3f3f3;
+        border-radius: 12px;
+        font-family: "PF-StartDust-Bold";
+        width: 45vw;
+        /* .result-cat의 1/3 크기로 설정 */
+        padding: 10px;
+        /* 내부 여백 추가 */
+        box-sizing: border-box;
+        /* 패딩을 포함한 박스 모델 */
+        display: flex;
+        /* 플렉스 박스 사용 */
+        align-items: center;
+        /* 세로 중앙 정렬 */
+        justify-content: center;
+        /* 가로 중앙 정렬 */
+        text-align: center;
+        /* 텍스트 중앙 정렬 */
+        height: 10vw;
+        /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+        margin-top: 20px;
+        /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+        font-size: 18px;
+        /* 테두리 추가 및 스타일링 */
+        /* 투명도를 높이기 위해 0.0에서 1.0 사이의 값 설정 (1.0이 불투명) */
+        border: 2px solid #ff69b4;
+        /* 핑크색 테두리 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* 부드러운 그림자 효과 */
+    }
+    .share-buttons {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .login-tinybox::before {
+        content: '';
+        /* 가상의 요소 생성 */
+        position: absolute;
+        bottom: -5px;
+        /* 위쪽으로 위치 조정 */
+        left: 22vw;
+        transform: translateX(-50%);
+        /* 가운데 정렬 */
+        width: 40vw;
+        /* 너비 조정 */
+        height: 5px;
+        /* 높이 조정 */
+        background: linear-gradient(to right, #d58f75, #d176a4);
+        /* 그라데이션 배경 */
+        border-radius: 12px 12px 0 0;
+        /* 위쪽 모서리 둥글게 */
+    }
+
+    .result-loginbigbox {
+        position: relative;
+        background: #f3f3f3;
+        border-radius: 12px;
+        font-family: "PF-StartDust-Bold";
+        width: 95vw;
+        /* .result-cat의 1/3 크기로 설정 */
+        padding: 10px;
+        /* 내부 여백 추가 */
+        box-sizing: border-box;
+        /* 패딩을 포함한 박스 모델 */
+        display: flex;
+        /* 플렉스 박스 사용 */
+        flex-direction: column;
+        /* 자식 요소를 세로로 배치 */
+        align-items: flex-start;
+        /* 왼쪽 정렬 */
+        justify-content: flex-start;
+        /* 세로 방향으로도 위쪽 정렬 */
+        text-align: left;
+        /* 텍스트 왼쪽 정렬 */
+        height: 85vw;
+        /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
+        margin-top: 8vw;
+        /* 위로 이동할 거리 조정 (원하는 만큼 조절 가능) */
+        font-size: 10px;
+        opacity: 0.7;
+        /* 투명도를 높이기 위해 0.0에서 1.0 사이의 값 설정 (1.0이 불투명) */
+        /* 테두리 추가 및 스타일링 */
+        border: 2px solid #ff69b4;
+        /* 핑크색 테두리 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* 부드러운 그림자 효과 */
+    }
+
+    .result-loginbigbox::before {
+        content: '';
+        /* 가상의 요소 생성 */
+        position: absolute;
+        bottom: -5px;
+        /* 위쪽으로 위치 조정 */
+        left: 47vw;
+        transform: translateX(-50%);
+        /* 가운데 정렬 */
+        width: 92vw;
+        /* 너비 조정 */
+        height: 5px;
+        /* 높이 조정 */
+        background: linear-gradient(to right, #d58f75, #d176a4);
+        /* 그라데이션 배경 */
+        border-radius: 12px 12px 0 0;
+        /* 위쪽 모서리 둥글게 */
+    }
+}

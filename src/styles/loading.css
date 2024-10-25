@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "PF-StartDust";
+    src: url("../assets/fonts/PF-StarDust.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "PF-StartDust-Bold";
+    src: url("../assets/fonts/PF-StarDust-Bold.ttf") format("truetype");
+  }
+
+/* loading.css */
+#background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 95vh; /* 전체 높이 */
+    overflow: hidden; /* 내용이 넘치지 않도록 */
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+}
+.loading-text {
+    color: #333238c9; 
+    font-size: 34px; 
+    font-family: "PF-StartDust-Bold";
+    white-space: nowrap; 
+}
+
+@media all and (max-width:430px) {
+    #background {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed; 
+        width: 100%;
+        height: 100%; /* 전체 높이 */
+        overflow: hidden; /* 내용이 넘치지 않도록 */
+        background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+    }    
+    .loading-text {
+        position: absolute;
+        top: 105vw; /* 위치 조정 */
+        left: 25vw;
+        color: #333238c9; /* 핑크색 텍스트 */
+        font-size: 34px; /* 텍스트 크기 */
+        text-align: center; /* 텍스트 정렬 */
+        font-family: "PF-StartDust-Bold";
+        white-space: nowrap; /* 줄바꿈 방지 */
+    }
+}

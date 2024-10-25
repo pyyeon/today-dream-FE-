@@ -1,0 +1,45 @@
+.construction-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../assets/const.png'); /* 이미지 경로를 상대적으로 변경 */
+    background-size: cover;
+    background-position: center;
+}
+
+.construction-gif {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px; 
+    top: 100px;
+}
+
+.construction-message {
+    font-family: 'PF-StartDust-ExtraBold';
+    font-size: 24px;
+    color: #333;
+    margin-top: 0; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #333;
+    animation: typing 3s steps(15) 0s infinite, blink 0.5s step-end infinite;
+    display: inline-block;
+    text-align: center;
+    max-width: 0;
+}
+
+@keyframes typing {
+    0% { max-width: 0; }
+    50% { max-width: 100%; }
+    100% { max-width: 100%; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #333; }
+}

@@ -1,0 +1,65 @@
+.background-night {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-image: url("../assets/img-background-night.png");
+    background-size: 100%;
+    background-color: #340C62;
+    background-repeat: no-repeat;
+}
+
+.main-cat {
+    background-image: url("../assets/img-main-cat.png");
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-repeat: no-repeat;
+}
+
+.content-box-hotdream {
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0 0 0 5px black inset;
+    font-size: 20px;
+    overflow: clip;
+    text-overflow: ellipsis;
+    white-space: pre;
+}
+
+.content-hotdream {
+    margin: 10px;
+}
+
+.content-name-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30vh;
+    align-self: flex-start;
+    justify-content: center;
+    background-color: white;
+    font-size: 20px;
+    height: 2em;
+    width: 10em;
+    border: 3px solid;
+}
+
+.content-name {
+    padding-top: 5px;
+}
+
+.another-dream {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #340C62;
+    font-size: 20px;
+    width: 100%;
+    height: 3em;
+}

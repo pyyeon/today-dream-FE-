@@ -1,0 +1,273 @@
+#menu-tap {
+    width: 30px;
+    height: 30px;
+    background-image: url(../assets/menu-bar.png);
+}
+
+#menu-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    color: black;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#menu-profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 10%;
+}
+
+#menu-profile-name {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.menu-line-bold {
+    border-top: 2px solid;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.menu-content {
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+}
+
+#mypage-profile {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    color: white;
+    margin: 20px;
+}
+
+#mypage-stamp-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-size: 100%;
+    background-color: rgba(175, 95, 159, 0.8);
+    background-repeat: no-repeat;
+    margin: 15px;
+    color: white;
+    border-radius: 5%;
+}
+
+#mypage-recently-post-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-size: 100%;
+    background-color: rgba(140, 68, 124, 0.8);
+    background-repeat: no-repeat;
+    margin: 10px;
+    color: white;
+    border-radius: 5%;
+}
+
+
+#mypage-stamp {
+    display: flex;
+    flex-direction: row;
+    /* 가로 방향으로 나열 */
+    justify-content: center;
+    /* 중앙 정렬 */
+    width: 100%;
+    /* 부모 요소의 너비에 맞춤 */
+}
+
+.stamp {
+    width: 70px;
+    /* 스템프 박스의 너비 */
+    height: 70px;
+    /* 스템프 박스의 높이 */
+    background-image: url("../assets/img-stamp01.png");
+    /* 배경 이미지 */
+    background-size: cover;
+    /* 이미지 크기 조정 */
+    background-repeat: no-repeat;
+    /* 이미지 반복 방지 */
+    margin: 5px;
+    /* 스템프 간격 */
+}
+
+#nickname {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+#button{
+    background-color: #af72bb;
+    /* 버튼 색상 */
+    border: 4px solid #333;
+    /* 진한 테두리 */
+    box-shadow: 0 0 0 4px #fff, 8px 8px 0 0 #333;
+    /* 픽셀 느낌의 그림자 */
+    color: #333;
+    /* 글자 색상 */
+    font-size: 18px;
+    padding: 10px 20px;
+    font-family: "PF-StartDust-ExtraBold";
+    /* 픽셀 폰트 */
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    border-radius: 9px;
+    /* 둥근 모서리 */
+    width: 165.2px;
+    height: 10px;
+    position: absolute;
+    left: 152px;
+    top: 340px;
+    box-shadow: 0 0 0 4px #fff, 4px 4px 0 0 #333;
+    /* 클릭 시 살짝 눌리는 효과 */
+    transform: translate(4px, 4px);
+    margin-top: -170px;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    /* 플렉스 박스 사용 */
+    align-items: center;
+    /* 수직 중앙 정렬 */
+    justify-content: center;
+    /* 수평 중앙 정렬 */
+}
+@media all and (max-width:430px) {
+    #mypage-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-size: 100%;
+        background-color: rgba(219, 168, 208, 0.8);
+        background-repeat: no-repeat;
+        margin: 10px;
+        color: white;
+        border-radius: 5%;
+    }
+
+    #mypage-profile-container {
+        display: flex;
+        flex-direction: column;
+        height: 60vw;
+        width: 89vw;
+        background-color: rgba(140, 68, 124, 0.8);
+        background-repeat: no-repeat;
+        margin: 10px;
+        color: white;
+        border-radius: 5%;
+    }
+
+    #mypage-profile {
+        display: flex;
+        flex-direction: row;
+        font-size: 20px;
+        color: white;
+        margin: 20px;
+    }
+
+    #mypage-stamp-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-size: 100%;
+        background-color: rgba(175, 95, 159, 0.8);
+        background-repeat: no-repeat;
+        margin: 15px;
+        color: white;
+        border-radius: 5%;
+    }
+
+    #mypage-recently-post-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-size: 100%;
+        background-color: rgba(140, 68, 124, 0.8);
+        background-repeat: no-repeat;
+        margin: 10px;
+        color: white;
+        border-radius: 5%;
+    }
+
+    #mypage-stamp-container {
+        display: flex;
+        flex-direction: column;
+        /* 세로 방향으로 쌓이게 설정 */
+        align-items: center;
+        /* 중앙 정렬 */
+    }
+
+    #mypage-stamp {
+        display: flex;
+        flex-direction: row;
+        /* 가로 방향으로 나열 */
+        justify-content: center;
+        /* 중앙 정렬 */
+        width: 100%;
+        /* 부모 요소의 너비에 맞춤 */
+    }
+
+    .stamp {
+        width: 70px;
+        /* 스템프 박스의 너비 */
+        height: 70px;
+        /* 스템프 박스의 높이 */
+        background-image: url("../assets/img-stamp01.png");
+        /* 배경 이미지 */
+        background-size: cover;
+        /* 이미지 크기 조정 */
+        background-repeat: no-repeat;
+        /* 이미지 반복 방지 */
+        margin: 5px;
+        /* 스템프 간격 */
+    }
+
+    #nickname {
+        margin-left: 3vw;
+        margin-top: 4vw;
+    }
+    #button{
+        background-color: #af72bb;
+        /* 버튼 색상 */
+        border: 4px solid #333;
+        /* 진한 테두리 */
+        box-shadow: 0 0 0 4px #fff, 8px 8px 0 0 #333;
+        /* 픽셀 느낌의 그림자 */
+        color: #333;
+        /* 글자 색상 */
+        font-size: 18px;
+        padding: 10px 20px;
+        font-family: "PF-StartDust-ExtraBold";
+        /* 픽셀 폰트 */
+        text-transform: uppercase;
+        cursor: pointer;
+        outline: none;
+        border-radius: 10px;
+        /* 둥근 모서리 */
+        width: 48.4vw;
+        height: 11vw;
+        position: absolute;
+        left: 37vw;
+        top: 38vw;
+        box-shadow: 0 0 0 4px #fff, 4px 4px 0 0 #333;
+        /* 클릭 시 살짝 눌리는 효과 */
+        transform: translate(4px, 4px);
+        margin-top: -19vw;
+        z-index: 2;
+        position: relative;
+        display: flex;
+        /* 플렉스 박스 사용 */
+        align-items: center;
+        /* 수직 중앙 정렬 */
+        justify-content: center;
+        /* 수평 중앙 정렬 */
+    }
+
+}

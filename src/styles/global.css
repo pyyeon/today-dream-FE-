@@ -1,0 +1,167 @@
+@font-face {
+  font-family: "PF-StartDust";
+  src: url("../assets/fonts/PF-StarDust.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PF-StartDust-Bold";
+  src: url("../assets/fonts/PF-StarDust-Bold.ttf") format("truetype");
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.width-child {
+  width: max-content;
+}
+
+@font-face {
+  font-family: "PF-StartDust-ExtraBold";
+  src: url("../assets/fonts/PF-StarDust-ExtraBold.ttf") format("truetype");
+}
+
+#header-home {
+  width: 30px;
+  height: 30px;
+  background-image: url('../assets/icon-home.png');
+}
+
+.font-normal {
+  font-family: "PF-StartDust";
+}
+
+.font-bold {
+  font-family: "PF-StartDust-Bold";
+}
+
+.font-extrabold {
+  font-family: "PF-StartDust-ExtraBold";
+}
+.swal-title {
+  font-family: "PF-StartDust-Bold", sans-serif; /* 제목에 폰트 적용 */
+}
+
+.swal-content {
+  font-family: "PF-StartDust-Bold", sans-serif; /* 내용에 폰트 적용 */
+}
+
+.swal-button {
+  font-family: "PF-StartDust-Bold", sans-serif; /* 버튼에 폰트 적용 */
+}
+
+body {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wrap {
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@media all and (max-width:430px) {
+  #wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+}
+
+header {
+  height: 60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  z-index: 10;
+  /* 다른 요소 위에 나타나도록 높은 z-index 값을 설정 */
+}
+
+.width-wrapper {
+  width: 30px;
+  height: 100%;
+}
+
+.draggable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.draggable-img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  /* 포인터 이벤트 비활성화 */
+}
+
+#logo {
+  margin-top: 5px;
+  width: 137px;
+  height: 40px;
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.fade-in-right-obj {
+  position: relative;
+  animation: fadeInRight 1s;
+}
+
+#menu-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: 'rgba(0, 0, 0, 0.7)'
+}
+
+.menu-on {
+  display: flex;
+  background-color: white;
+  width: 65%;
+  height: 100%;
+}
+
+textarea:placeholder-shown {
+  overflow: visible;
+}
