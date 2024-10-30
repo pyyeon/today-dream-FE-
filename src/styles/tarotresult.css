@@ -1,0 +1,29 @@
+.rcard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* 카드 사이의 간격 */
+    width: 100%;
+    background-color: rgba(126, 126, 126, 0.425);
+    height: 200px;
+}
+
+.rcard {
+    width: 100px;
+    height: 160px;
+}
+
+.rcat-image {
+    width: 100px;
+    height: auto;
+    margin: 5px auto;
+}
+
+.result-container {
+    text-align: left;
+    color: white;
+    font-family: "PF-StartDust-Bold";
+    background-color: rgba(0, 0, 0, 0.425);
+    width: 100%;
+    height: 200px;
+}

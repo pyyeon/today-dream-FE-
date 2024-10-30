@@ -109,11 +109,19 @@ const Button: React.FC<ButtonProps> = ({ mode, name, draggable = true, option, c
             break;
         case 'leave':
             currentClass = 'go-leave-button';
-        case 'normalButton' :
+        case 'normalButton':
             currentClass = 'normal-button';
             break;
-        case 'search' :
+        case 'search':
             currentClass = 'search-button';
+            break;
+        case 'love':
+        case 'money':
+        case 'job':
+            currentClass = 'choice-button';
+            break;
+        case 'tarot':
+            currentClass = 'tarot-button';
             break;
         default:
             break; // 기본 클래스 유지
@@ -147,6 +155,7 @@ const Button: React.FC<ButtonProps> = ({ mode, name, draggable = true, option, c
             onClick={onClick}
         >
             {name} {/* 버튼 텍스트 */}
+            {children} {/* 자식 요소 렌더링 */}
         </button>
     );
 }

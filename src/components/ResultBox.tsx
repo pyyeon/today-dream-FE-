@@ -4,18 +4,21 @@ import '../styles/result.css';
 
 type Box = {
     message: string; // message prop의 타입 정의
-    mode?: 'board' | 'main'; // 모드 제한
+    mode?: 'board' | 'main' | 'tarot'; // 모드 제한
 }
 
 const ResultBox: React.FC<Box> = ({ message, mode }) => {  // 수정
     let currentClass = ''; // currentClass 변수를 초기화
-    
+
     switch (mode) {
         case 'board':
             currentClass = 'result-message-board';
             break;
         case 'main':
             currentClass = 'result-message-main';
+            break
+        case 'tarot':
+            currentClass = 'result-tarot-main';
             break
         default:
             break;
