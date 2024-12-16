@@ -62,7 +62,7 @@ const InterpretationResult = () => {
     };
 
     const goToTarotPage = () => {
-        navigate('/preparing');
+        navigate('/tarot-start');
     };
 
     return (

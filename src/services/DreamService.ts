@@ -1,9 +1,10 @@
 import { postData, getData, patchData, deleteData } from "./index.ts";
-import { GetsApiResponse, PostApiResponse, GetApiResponse, CommentsResponse, RewardPictureResponse } from '../interfaces/dream.ts';
+import { GetsApiResponse, PostApiResponse, GetApiResponse, CommentsResponse, RewardPictureResponse, TarotPostApiResponse } from '../interfaces/dream.ts';
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 
 const BASED_URL = process.env.REACT_APP_BASED_URL;
 const POST_DREAM_URL = process.env.REACT_APP_BASED_URL + '/dreams'
+const POST_TAROT_URL = process.env.REACT_APP_BASED_URL + '/tarots'
 
 export const postDream = async (prompt: string, accessToken?: AxiosRequestConfig) => {
     const response = await postData<PostApiResponse>(POST_DREAM_URL, prompt, accessToken);
@@ -16,6 +17,11 @@ export const postStamp = async (dreamId: number, accessToken: AxiosRequestConfig
 
     return response; // result에서 DreamData 반환
 };
+export const PostTarot = async (requestData: { category: string }) => {
+    const response = await postData<TarotPostApiResponse>(POST_TAROT_URL, requestData); // { category }로 변경
+    return response;
+};
+
 export const stampReward = async (dreamId: number, accessToken: AxiosRequestConfig ) => {
     const url = POST_DREAM_URL + '/' + dreamId + '/sharing';
     const response = await postData<RewardPictureResponse>(url, {}, accessToken);

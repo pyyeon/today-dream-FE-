@@ -19,9 +19,13 @@ import { MemberManager } from '../hooks/MemberManager.tsx';
 import { HeaderManager } from '../hooks/HeaderManager.tsx';
 import MemberModification from '../pages/MemberModification.tsx';
 import { ProfileProvider } from '../hooks/ProfileContext.tsx';
-import Footer from './Footer.tsx';
-// import TarotResult from '../components/TarotResult.tsx';
+import TarotStart from '../pages/TarotStart.tsx';
+import TarotChoice from '../pages/TarotChoice.tsx';
+import TarotLoading from '../pages/TarotLoading.tsx';
+import TarotResult from '../pages/TarotResult.tsx';
 import TarotPage from '../pages/Tarot.tsx';
+
+
 const App = () => {
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {
@@ -52,7 +56,10 @@ const App = () => {
                   <Route path='/board' element={<Board />} />
                   <Route path='/board/:id' element={<BoardDetail />} />
                   <Route path='/preparing' element={<TarotPage />} />
-                  {/* <Route path="/tarot-result" element={<TarotResult />} /> */}
+                  <Route path="/tarot-start" element={<TarotStart />} />
+                  <Route path="/tarot-choice" element={<TarotChoice />} />
+                  <Route path="/tarot-loading" element={<TarotLoading />} />
+                  <Route path="/tarot-result" element={<TarotResult />} />
                 </Routes>
               </HeaderManager>
             </div>

@@ -69,6 +69,23 @@ export interface DreamData { // boardList에서 필요함.
     comments: Comments[]; // 댓글이 있는 경우, 적절한 타입을 지정해 주세요
 }
 
+export interface Result {
+    category: string;
+    firstCard: string;
+    secondCard: string;
+    thirdCard: string;
+    content: string;
+}
+
+export interface TarotData {
+    category: string; // 카테고리
+    firstCard: string; // 첫 번째 카드
+    secondCard: string; // 두 번째 카드
+    thirdCard: string; // 세 번째 카드
+    result: string; // 해석 내용
+}
+
+
 interface Data {
     config: {};
     data: DreamData;
@@ -91,6 +108,11 @@ interface Datas {
 export interface PostApiResponse {
     data: DreamData;
 }
+
+export interface TarotPostApiResponse {
+    data: TarotData;
+}
+
 
 export interface GetApiResponse {
     config: {};

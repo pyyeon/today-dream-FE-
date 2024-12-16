@@ -68,36 +68,36 @@ const Loading = () => {
     };
 
     const postAsync = async () => {
-            const response = await postDream(prompt, accessToken);
-            console.log(response.status);
-            if (response.status === 500){
-                Swal.fire({
-                    icon: 'error',
-                    title: '해몽 에러다냥😿',
-                    text: '해몽을 할 수 없었다냥... 다시 해보자냥!🐾',
-                    confirmButtonText: '알겠다냥!'
-                }).then(() => {
-                    navigate(-1); // 뒤로 가기
-                });
-            }
-            setResponseContent(response.data);
+        const response = await postDream(prompt, accessToken);
+        console.log(response.status);
+        if (response.status === 500) {
+            Swal.fire({
+                icon: 'error',
+                title: '해몽 에러다냥😿',
+                text: '해몽을 할 수 없었다냥... 다시 해보자냥!🐾',
+                confirmButtonText: '알겠다냥!'
+            }).then(() => {
+                navigate(-1); // 뒤로 가기
+            });
+        }
+        setResponseContent(response.data);
     }
 
     useEffect(() => {
         postAsync();
     }, []);
 
-    if (responseContent) {
+    if (responseContent?.data?.interpretationResponse) {
         const interpretationResponse = responseContent.data.interpretationResponse;
         const advice = interpretationResponse.advice;
-        const interpertaionKeyword = interpretationResponse.keyword;
+        const interpretationKeyword = interpretationResponse.keyword;
         const summary = interpretationResponse.summary;
         const dreamContent = responseContent.data.content;
-        const interpertaionContent = interpretationResponse.content;
+        const interpretationContent = interpretationResponse.content;
         const dreamId = responseContent.data.dreamId;
 
         navigate('/interpretation-result', {
-            state: { advice, interpertaionKeyword, summary, dreamContent, interpertaionContent, dreamId, name }
+            state: { advice, interpretationKeyword, summary, dreamContent, interpretationContent, dreamId, name }
         });
     }
 
