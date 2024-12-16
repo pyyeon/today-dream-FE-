@@ -160,7 +160,7 @@
     /* 가로 중앙 정렬 */
     text-align: center;
     /* 텍스트 중앙 정렬 */
-    height: 155px;
+    height: 100%;
     /* 높이를 자동으로 조정하여 내용에 맞게 변경 */
     font-size: 18px;
     border: 2px solid #313131;
