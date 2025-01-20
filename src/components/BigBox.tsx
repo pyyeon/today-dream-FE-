@@ -4,7 +4,7 @@ import '../styles/global.css';
 
 type BigBox = {
     mode?: 'resultbox' | 'loginbox' | 'signupbox'; // 모드 제한
-    children: ReactNode;
+    children: React.ReactNode;
 }
 
 const ResultBigBox: React.FC<BigBox> = ({ mode, children }) => {
@@ -26,7 +26,7 @@ const ResultBigBox: React.FC<BigBox> = ({ mode, children }) => {
 
     return (
         <div className={currentClass}>
-            {children}
+           <span>{children}</span>
         </div>
     );
 }
