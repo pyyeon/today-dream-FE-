@@ -23,9 +23,7 @@ const Footer = () => {  // 수정
                 </Link>
                 <select id="page-select" onChange={handleSelectChange}>
                     <option value="">Select an option</option>
-                    <option value='https://github.com/YoungJunRoh/dream-high'>About</option>
-                    <option value='/preparing'>Privacy Policy</option>
-                    <option value='https://discord.com/channels/1271016042243817604/1274978267212021760'>Contact Us</option>
+                    <option value='https://github.com/pyyeon/today-dream'>About Code</option>
                     <option value='https://energetic-voyage-1d2.notion.site/Dream-High-e4814e208c7f4a03a1ad2ffbc857751e?pvs=4'>Our Team</option>
                 </select>
             </div>

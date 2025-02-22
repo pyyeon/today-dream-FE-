@@ -32,6 +32,11 @@
     margin-bottom: -60px;
 }
 
+/* styles/mypage.css */
+.menu-content:hover {
+    color: blue; /* 파란색으로 변경 */
+    cursor: pointer; /* 클릭 가능하다는 표시 */
+  }
 .card-cat {
     background-image: url("../assets/카드선택.png");
     width: 370px;

@@ -16,22 +16,21 @@ type ShareProps = {
 };
 
 const Share: React.FC<ShareProps> = ({ boardId, username, content, dreamId }) => {
-    const shareUrl = `http://dream-high.s3-website.ap-northeast-2.amazonaws.com/board/${boardId}`;
+    const shareUrl = `https://todaydream.shop/board/${boardId}`;
     const { authorization, login } = useMember();
     const [stamp, setStamp] = useState<AxiosResponse | null>(null);
     const [responsePicture, setResponsePicture] = useState<RewardPictureResponse | null>(null);
-    // 안에 타입지정 
-  
+
     const accessToken: AxiosRequestConfig = {
         headers: {
             Authorization: authorization,
         },
     };
+
     const postAsync = async () => {
         const response = await postStamp(dreamId, accessToken);
         setResponsePicture(response.data);
-    }
-    
+    };
 
     const showLoginAlert = () => {
         Swal.fire({
@@ -44,7 +43,7 @@ const Share: React.FC<ShareProps> = ({ boardId, username, content, dreamId }) =>
             cancelButtonText: '취소',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = '/login-home'; // 로그인 페이지로 이동
+                window.location.href = '/login-home';
             }
         });
     };
@@ -54,7 +53,6 @@ const Share: React.FC<ShareProps> = ({ boardId, username, content, dreamId }) =>
            showLoginAlert(); 
            return;
         }
-        
 
         if (window.Kakao) {
             const kakao = window.Kakao;
@@ -80,7 +78,8 @@ const Share: React.FC<ShareProps> = ({ boardId, username, content, dreamId }) =>
                     },
                 ],
             });
-        }postAsync();
+        }
+        // postAsync();
     };
 
     const handleShareTwitterClick = () => {
@@ -98,21 +97,26 @@ const Share: React.FC<ShareProps> = ({ boardId, username, content, dreamId }) =>
         if (!login) {
             showLoginAlert();
             return;
-        }postAsync();
-
-        Swal.fire({
-            icon: 'error',
-            title: 'Instagram이 냥이를 거부한다냥😿',
-            text: '너무 나쁜 집사다냥!🐾',
-            confirmButtonText: '알겠다냥!'
-        });
-
+        }
+        
         navigator.clipboard.writeText(shareUrl)
             .then(() => {
-                alert('링크가 클립보드에 복사되었습니다!');
+                const instagramDMUrl = `https://www.instagram.com/direct/inbox/`;
+                window.open(instagramDMUrl, '_blank');
+                navigator.clipboard.writeText(shareUrl)
+                .then(() => {
+                    alert('공유 링크가 클립보드에 복사되었습니다!');
+                })
+                // postAsync();
             })
             .catch(err => {
                 console.error('클립보드에 복사 실패:', err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Instagram 공유 실패😿',
+                    text: '다시 시도해보라옹🐾',
+                    confirmButtonText: '뒤로'
+                });
             });
     };
 
@@ -120,14 +124,7 @@ const Share: React.FC<ShareProps> = ({ boardId, username, content, dreamId }) =>
         if (!login) {
             showLoginAlert();
             return;
-        }postAsync();
-
-        Swal.fire({
-            icon: 'error',
-            title: 'ClipBoard가 냥이를 거부한다냥😿',
-            text: '너무 나쁜 집사다냥!🐾',
-            confirmButtonText: '알겠다냥!'
-        });
+        }
 
         navigator.clipboard.writeText(shareUrl)
             .then(() => {
@@ -135,18 +132,20 @@ const Share: React.FC<ShareProps> = ({ boardId, username, content, dreamId }) =>
             })
             .catch(err => {
                 console.error('클립보드에 복사 실패:', err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'ClipBoard 복사 실패😿',
+                    text: '다시 시도해보라옹🐾',
+                    confirmButtonText: '뒤로'
+                });
             });
     };
-   
 
     return (
         <div className="share-buttons">
-            <div id="result-sharing-kakao" onClick={handleShareKakaoClick}>
-            </div>
-            <div id="result-sharing-x" onClick={handleShareTwitterClick}>
-            </div>
-            <div id="result-sharing-insta" onClick={handleShareInstagramClick}>
-            </div>
+            <div id="result-sharing-kakao" onClick={handleShareKakaoClick}></div>
+            <div id="result-sharing-x" onClick={handleShareTwitterClick}></div>
+            <div id="result-sharing-insta" onClick={handleShareInstagramClick}></div>
             <div id="result-sharing-link" onClick={handleCopyLinkClick}></div>
         </div>
     );

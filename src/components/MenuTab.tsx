@@ -248,6 +248,10 @@ export const MenuTab = () => {
                   >
                     <div className='menu-content font-bold'>게시판 보러가기</div>
                   </Link>
+                  <Link to="/tarot-start" className="menu-content font-bold" onClick={closeModalHandler}>
+  타로 보러가기
+</Link>
+
                 </div>
               </ModalView>
             </ModalBackdrop>

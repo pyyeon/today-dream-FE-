@@ -19,7 +19,7 @@ interface LocationState {
     interpertaionKeyword: string;
     summary: string;
     dreamContent: string;
-    interpertaionContent: string;
+    interpretationContent: string;
     dreamId: number;
     name: string;
 }
@@ -28,17 +28,18 @@ const InterpretationResult = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const state = location.state as LocationState | null;
-
+    console.log(state);
+    console.log(location);
     const interpertaionKeyword = state?.interpertaionKeyword as string;
     const advice = state?.advice as string;
     const summary = state?.summary as string;
     const dreamContent = state?.dreamContent as string;
-    const interpertaionContent = state?.interpertaionContent as string;
+    const interpertaionContent = state?.interpretationContent as string;
     const dreamId = state?.dreamId as number;
     const username = state?.name as string;
 
     const captureRef = useRef<HTMLDivElement>(null);
-
+  
     const handleCapture = async () => {
         if (captureRef.current) {
             const canvas = await html2canvas(captureRef.current);
@@ -86,7 +87,7 @@ const InterpretationResult = () => {
                     </div>
                 </div>
                 <ResultSmallBox name='자세한 꿈해몽이다 냥냥🐾' mode='resultbox' />
-                <ResultBigBox mode='resultbox'>{interpertaionContent}</ResultBigBox>
+                <ResultBigBox mode='resultbox'>{state?.interpretationContent || '비었습니다'}</ResultBigBox>
                 <Button
                     name='타로도 보러갈래냥?🐾'
                     mode='gotarot'

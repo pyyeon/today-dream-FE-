@@ -18,13 +18,14 @@ import { useMember } from '../hooks/MemberManager.tsx';
 import { AxiosRequestConfig } from 'axios';
 import { getMember } from '../services/MemberService.ts';
 import { memberApiResponse } from '../interfaces/member.ts'
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const { authorization, name, login, setName, profileUrl, setProfileUrl } = useMember();
     const [responseMember, setResponseMember] = useState<memberApiResponse | null>(null);
     const { headerMode, setHeaderMode } = useHeaderMode();
     const [responseDreams, setResponseDreams] = useState<GetsApiResponse | null>(null);
-
+    const navigate = useNavigate();
     setHeaderMode('main'); // 헤더 상태
 
     const accessToken: AxiosRequestConfig = {
@@ -70,6 +71,11 @@ const Home = () => {
         return "데이터가 없습니다.";// fallback 메시지 또는 null
     };
 
+    
+    const goToTarotPage = () => {
+        navigate('/tarot-start');
+    };
+
     const randomTmiIdx: number = Math.floor(Math.random() * tmiDatas.length);
 
     return (
@@ -82,10 +88,17 @@ const Home = () => {
                         name='start'
                         mode='main' />
                 </Link>
+                
                 <div className='content-name-container'>
                     <span className='font-bold content-name'>이런 해몽도 있다냥 🐾</span>
                 </div>
                 <HotDream>{hotDreamMaker()}</HotDream>
+                {/* <Button
+                    name='타로도 보러갈래냥?🐾'
+                    mode='gotarot'
+                    draggable={true}
+                    onClick={goToTarotPage}
+                /> */}
                 <div className='another-dream font-extrabold'>다른꿈도 보러가기  ▼</div>
                 <BoardIndex />
                 {boards}
