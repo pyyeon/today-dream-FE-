@@ -1,12 +1,14 @@
 @font-face {
     font-family: "PF-StartDust";
     src: url("../assets/fonts/PF-StarDust.ttf") format("truetype");
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: "PF-StartDust-Bold";
     src: url("../assets/fonts/PF-StarDust-Bold.ttf") format("truetype");
-  }
+}
+
+/* 모달 스타일 */
 .modal {
     position: fixed;
     top: 0;
@@ -27,165 +29,158 @@
     text-align: left;
 }
 
-
-.cat-paw-button {
-    background-color: #FFF; /* 버튼 배경 색 */
-    border: 2px solid transparent; /* 기본 테두리 */
-    border-radius: 50%; /* 원형 모양 */
-    width: 80px; /* 버튼 크기 */
-    height: 80px; /* 버튼 크기 */
+/* 이용약관 확인 & 버튼 정렬 */
+.terms-box {
     display: flex;
-    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;  /* 버튼과 텍스트 간격 유지 */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto; /* 수평 중앙 정렬 */
+}
+
+/* 동의 전 상태 */
+.terms-prompt {
+    color: black;
+    font-size: 18px;
+}
+
+/* 동의 후 상태 (연한 보라색) */
+.terms-confirmed {
+    color: #A899C1;
+    font-size: 18px;
+}
+
+.checked-icon {
+    background-color: transparent;  /* 배경 없음 */
+    border: none;  /* 테두리 제거 */
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* ✅ 체크 아이콘 스타일 (글씨 색과 동일) */
+.check-mark {
+    color: #A899C1; /* 이용약관 글씨 색과 동일한 연한 보라색 */
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;   /* 절대 위치로 발바닥 위에 오도록 설정 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;  /* 발바닥보다 위에 위치하도록 설정 */
+}
+
+/* 발바닥 버튼 (기본) */
+.cat-paw-button {
+    background-color: #FFF;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    width: 56px;  /* 70% 크기로 축소 (원래 80px → 56px) */
+    height: 56px;
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease; /* 부드러운 전환 효과 */
-    position: relative; /* 위치 조정 */
+    transition: all 0.3s ease;
+    position: relative;
+    margin-top: -0.2rem;   /* 버튼을 조금 위로 올림 */
 }
 
+/* 발바닥 효과 배경 (중앙의 하얀 원 그라디언트) */
 .cat-paw-button::before {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0) 70%); /* 발바닥 효과 */
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 70%);
     border-radius: 50%;
-    z-index: 0; /* 배경으로 설정 */
+    z-index: 0;   /* 배경은 맨 뒤 */
 }
 
+/* 발바닥(발가락) 배치 - 두 번째 사진 모양 그대로 */
 .cat-paw-button .paw {
     position: absolute;
-    background-color: #272424; /* 발바닥 색 */
-    border-radius: 100%; /* 원형으로 */
+    background-color: #272424;  /* 발바닥 색 */
+    border-radius: 100%;
+    z-index: 1;                 /* 배경보다 위, 체크마크보다 아래 */
 }
 
+/* 작은 발가락 1 (왼쪽 위) */
 .cat-paw-button .paw:nth-child(1) {
-    width: 20px;
-    height: 20px;
-    top: -1px;
-    left: 17px; /* 왼쪽 발가락 */
+    width: 14px;   /* (20px → 14px) 70% */
+    height: 14px;
+    top: -1px;     /* (원래 -1) */
+    left: 12px;    /* (17 → 12) */
 }
 
+/* 작은 발가락 2 (오른쪽 위) */
 .cat-paw-button .paw:nth-child(2) {
-    width: 20px;
-    height: 20px;
-    top: -1px;
-    right: 15px; /* 오른쪽 발가락 */
+    width: 14px;   /* (20px → 14px) 70% */
+    height: 14px;
+    top: -1px;     /* (원래 -1) */
+    right: 10px;   /* (15 → 10) */
 }
 
+/* 큰 발바닥 (중앙 아래) */
 .cat-paw-button .paw:nth-child(3) {
-    width: 40px;
-    height: 40px;
-    bottom: 10px; /* 발바닥 */
+    width: 28px;   /* (40px → 28px) 70% */
+    height: 28px;
+    bottom: 7px;   /* (10 → 7) */
     left: 50%;
-    transform: translateX(-50%); /* 중앙 정렬 */
+    transform: translateX(-50%);
 }
 
+/* 작은 발가락 3 (오른쪽 아래) */
 .cat-paw-button .paw:nth-child(4) {
-    width: 20px;
-    height: 20px;
-    top: 17px;
-    left: 55px; /* 오른쪽 발가락 아래 */
+    width: 14px;   /* (20px → 14px) 70% */
+    height: 14px;
+    top: 12px;     /* (17 → 12) */
+    left: 39px;    /* (55 → 39) */
 }
 
+/* 작은 발가락 4 (왼쪽 아래) */
 .cat-paw-button .paw:nth-child(5) {
-    width: 20px;
-    height: 20px;
-    top: 17px;
-    right: 55px; /* 왼쪽 발가락 아래 */
+    width: 14px;   /* (20px → 14px) 70% */
+    height: 14px;
+    top: 12px;     /* (17 → 12) */
+    right: 39px;   /* (55 → 39) */
 }
 
+/* hover 효과 */
 .cat-paw-button:hover {
-    border: 2px solid yellow; /* 마우스 오버 시 노란색 테두리 */
-    box-shadow: 0 0 10px yellow; /* 노란색 빛나는 효과 */
+    border: 2px solid yellow;
+    box-shadow: 0 0 10px yellow;
 }
 
+/* active 효과 */
 .cat-paw-button:active {
-    transform: scale(0.95); /* 눌렸을 때 크기 감소 */
-    box-shadow: 0 0 5px yellow; /* 눌림 효과 */
+    transform: scale(0.95);
+    box-shadow: 0 0 5px yellow;
 }
-.h5{
+
+/* 버튼 높이 조정하여 '이용약관 확인하라옹'과 수평 맞추기 */
+.terms-box .cat-paw-button {
+    align-self: center;
+}
+
+/* h5 스타일 */
+.h5 {
     margin-top: 30px;
-}
-@media all and (max-width:430px) {
-    
-.cat-paw-button {
-    background-color: #FFF; /* 버튼 배경 색 */
-    border: 2px solid transparent; /* 기본 테두리 */
-    border-radius: 50%; /* 원형 모양 */
-    width: 80px; /* 버튼 크기 */
-    height: 80px; /* 버튼 크기 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease; /* 부드러운 전환 효과 */
-    position: relative; /* 위치 조정 */
+    font-family: "PF-StartDust-Bold", sans-serif;
 }
 
-.cat-paw-button::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0) 70%); /* 발바닥 효과 */
-    border-radius: 50%;
-    z-index: 0; /* 배경으로 설정 */
-}
-
-.cat-paw-button .paw {
-    position: absolute;
-    background-color: #272424; /* 발바닥 색 */
-    border-radius: 100%; /* 원형으로 */
-}
-
-.cat-paw-button .paw:nth-child(1) {
-    width: 20px;
-    height: 20px;
-    top: -1px;
-    left: 17px; /* 왼쪽 발가락 */
-}
-
-.cat-paw-button .paw:nth-child(2) {
-    width: 20px;
-    height: 20px;
-    top: -1px;
-    right: 15px; /* 오른쪽 발가락 */
-}
-
-.cat-paw-button .paw:nth-child(3) {
-    width: 40px;
-    height: 40px;
-    bottom: 10px; /* 발바닥 */
-    left: 50%;
-    transform: translateX(-50%); /* 중앙 정렬 */
-}
-
-.cat-paw-button .paw:nth-child(4) {
-    width: 20px;
-    height: 20px;
-    top: 17px;
-    left: 55px; /* 오른쪽 발가락 아래 */
-}
-
-.cat-paw-button .paw:nth-child(5) {
-    width: 20px;
-    height: 20px;
-    top: 17px;
-    right: 55px; /* 왼쪽 발가락 아래 */
-}
-
-.cat-paw-button:hover {
-    border: 2px solid yellow; /* 마우스 오버 시 노란색 테두리 */
-    box-shadow: 0 0 10px yellow; /* 노란색 빛나는 효과 */
-}
-
-.cat-paw-button:active {
-    transform: scale(0.95); /* 눌렸을 때 크기 감소 */
-    box-shadow: 0 0 5px yellow; /* 눌림 효과 */
-}
-.h5{
-    margin-top: 6vw;
-    font-family: "PF-StartDust-Bold", sans-serif; /* 버튼에 폰트 적용 */
-}
+/* 반응형 (모바일) */
+@media all and (max-width: 430px) {
+    .cat-paw-button {
+        width: 56px;
+        height: 56px;
+    }
 }

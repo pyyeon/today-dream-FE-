@@ -262,15 +262,29 @@ const SignUp = () => {
                             type='password'
                         />
                     </div>
-                    <h5 className='h5'>이용약관 확인하라옹</h5>
-                    <div className='cat-paw-button'>
-                        <button onClick={handleOpenModal}>
-                            <div className="paw"></div>
-                            <div className="paw"></div>
-                            <div className="paw"></div>
-                            <div className="paw"></div>
-                            <div className="paw"></div>
-                        </button>
+                     {/* ✅ 이용약관 확인 & 버튼 한 줄 정렬 (가운데 고정) */}
+                     <div className='terms-box'>
+                        <span className={isAgreed ? 'terms-confirmed' : 'terms-prompt'}>
+                            {isAgreed ? '이용약관 확인됐다옹' : '이용약관 확인하라옹'}
+                        </span>
+                        <button 
+    onClick={handleOpenModal} 
+    className={`cat-paw-button ${isAgreed ? 'checked-icon' : ''}`} 
+    disabled={isAgreed}
+>
+    {!isAgreed ? (
+        <>
+            <div className="paw"></div>
+            <div className="paw"></div>
+            <div className="paw"></div>
+            <div className="paw"></div>
+            <div className="paw"></div>
+        </>
+    ) : (
+        <span className="check-mark">✔</span> 
+    )}
+</button>
+
                     </div>
                 </div>
             </ResultBigBox>
