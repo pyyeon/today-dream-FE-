@@ -10,7 +10,6 @@ import { postLogout } from '../services/MemberService.ts';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import defaultProfile from '../assets/img-non-login.png';
 
-
 // Modal Container
 export const ModalContainer = styled.div`
   display: flex;
@@ -41,17 +40,12 @@ export const ModalBackdrop = styled.div`
   background: rgba(0, 0, 0, 0.5);
   }
 `;
-// 유즈멤버에서 네임이랑 프로필사진 가져오고 가져온걸로 이미지 등록하는거 
-// 우리가 한 마이페이지 설정한것처럼 마이페이지 참고하고 네임 유즈멤버 자동적용
-
 
 // 모달
 export const ModalView = styled.div.attrs(() => ({
   // attrs 메소드를 이용해서 아래와 같이 div 엘리먼트에 속성을 추가할 수 있습니다.
   role: 'dialog',
 }))`
-  // TODO : Modal창 CSS를 구현합니다.
-  // top: 472px;
   top: 50%;
   left: 238px;
   transform: translate(-50%, -50%);
@@ -68,7 +62,6 @@ export const ModalView = styled.div.attrs(() => ({
   position: relative;
 
   @media all and (max-width:430px) {
-    // TODO : Modal창 CSS를 구현합니다.
     top: 50%;
     left: 65%;
     transform: translate(-50%, -50%);
@@ -93,12 +86,10 @@ const ProfileImage = styled.img`
 `
 
 export const MenuTab = () => {
-  // 전역으로 토큰 및 로그인 상태를 저장하기 위한 훅스 호출
   const [isOpen, setIsOpen] = useState<boolean>(false); // 메뉴탭 상태
   const [isLogin, setIsLogin] = useState<boolean>(false); // 로그인 상태
   const navigation = useNavigate();
 
-  // AxiosRequestConfig 타입 선언.
   const { authorization, refresh, login, name, profileUrl, setAuthorization, setRefresh, setLogin } = useMember();
   const accessToken: AxiosRequestConfig = {
     headers: {
@@ -106,7 +97,6 @@ export const MenuTab = () => {
     },
   };
 
-  // 로그아웃 API 호출
   const LogoutAsync = async () => {
     const response: AxiosResponse = await postLogout(accessToken);
   }
@@ -131,7 +121,6 @@ export const MenuTab = () => {
     navigation('/mypage', { state: { accessToken } });
   }
 
-  // 로그아웃
   const logoutHandler = () => {
     console.log('로그아웃 감지');
     Swal.fire({
@@ -154,9 +143,7 @@ export const MenuTab = () => {
     })
   };
 
-
   if (isLogin) {
-    // 로그인 상태
     return (
       <>
         <ModalContainer>
@@ -190,6 +177,9 @@ export const MenuTab = () => {
                   >
                     <div className='menu-content font-bold'>게시판 보러가기</div>
                   </Link>
+                     <Link to="/tarot-start"  onClick={closeModalHandler} style={{ textDecoration: 'none' }}>
+                     <div className='menu-content font-bold'>타로 보러가기</div>
+                  </Link>
                   <div
                     className='menu-content font-bold'
                     onClick={logoutHandler}
@@ -203,7 +193,6 @@ export const MenuTab = () => {
     );
   } else {
     return (
-      // 비로그인 상태
       <>
         <ModalContainer>
           <div
@@ -249,9 +238,8 @@ export const MenuTab = () => {
                     <div className='menu-content font-bold'>게시판 보러가기</div>
                   </Link>
                   <Link to="/tarot-start" className="menu-content font-bold" onClick={closeModalHandler}>
-  타로 보러가기
-</Link>
-
+                    타로 보러가기
+                  </Link>
                 </div>
               </ModalView>
             </ModalBackdrop>
@@ -261,3 +249,5 @@ export const MenuTab = () => {
     );
   }
 };
+
+

@@ -104,3 +104,45 @@
     width: 100%;
     height: 3em;
 }
+
+/* 🐾 둥글고 귀여운 말풍선 */
+.speech-bubble {
+    position: relative;
+    display: inline-block;
+    background: #fff5cc; /* 💛 부드러운 크림색 */
+    color: #4a2f2f; /* 🍫 따뜻한 초코색 텍스트 */
+    font-family: 'Jua', sans-serif; /* 🎀 둥글둥글 귀여운 폰트 */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); /* 🎈 부드러운 그림자 */
+    max-width: 300px;
+    margin: 20px auto;
+  }
+  
+  /* 🐱 말풍선 꼬리 */
+  .speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 20%;
+    border-width: 12px;
+    border-style: solid;
+    border-color: #fff5cc transparent transparent transparent; /* 꼬리 색 */
+  }
+  
+  /* 🌀 살짝 흔들리는 애니메이션 */
+  @keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+  }
+  
+  .speech-bubble {
+    animation: float 3s infinite ease-in-out;
+  }

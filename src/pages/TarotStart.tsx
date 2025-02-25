@@ -54,35 +54,30 @@ const TarotStart = () => {
 
     return (
         <div className="background-night">
-            <div
-                style={{
-                    fontFamily: 'PF-StartDust-ExtraBold',
-                    fontSize: '21px',
-                    marginBottom: '-10px',
-                    marginTop: '10px',
-                    color: '#000000',
-                }}
-            >
-                오늘은 어떤게 궁금하냥?
-            </div>
-            <div className="tarot-cat" />
-            {/* 카테고리 버튼 */}
-            <div onClick={() => handleCategorySelect('연애운')}>
-                <Button name="연애운" mode="love">
-                    <img src={love} alt="하트" style={{ width: '27px', height: '25px', marginLeft: '5px' }} />
-                </Button>
-            </div>
-            <div onClick={() => handleCategorySelect('금전운')}>
-                <Button name="금전운" mode="money">
-                    <img src={money} alt="돈" style={{ width: '30px', height: '30px', marginLeft: '5px' }} />
-                </Button>
-            </div>
-            <div onClick={() => handleCategorySelect('취업운')}>
-                <Button name="취업운" mode="job">
-                    <img src={job2} alt="직업" style={{ width: '46px', height: '32px', marginRight: '-17px' }} />
-                </Button>
-            </div>
+   
+        <div className="speech-bubble">
+            오늘은 어떤게 궁금하냥? 🐾
         </div>
+
+        <div className="tarot-cat" />
+
+        {/* 🟢 카테고리 버튼 */}
+        <div onClick={() => handleCategorySelect('연애운')}>
+            <Button name="연애운" mode="love">
+                <img src={love} alt="하트" style={{ width: '27px', height: '25px', marginLeft: '5px' }} />
+            </Button>
+        </div>
+        <div onClick={() => handleCategorySelect('금전운')}>
+            <Button name="금전운" mode="money">
+                <img src={money} alt="돈" style={{ width: '30px', height: '30px', marginLeft: '5px' }} />
+            </Button>
+        </div>
+        <div onClick={() => handleCategorySelect('취업운')}>
+            <Button name="취업운" mode="job">
+                <img src={job2} alt="직업" style={{ width: '46px', height: '32px', marginRight: '-17px' }} />
+            </Button>
+        </div>
+    </div>
     );
 };
 

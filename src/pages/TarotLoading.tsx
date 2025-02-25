@@ -20,6 +20,7 @@ interface TarotData {
     firstCard: string;
     secondCard: string;
     thirdCard: string;
+    summary: string;
     result: string;
 }
 
@@ -45,13 +46,16 @@ const TarotLoading = () => {
             if (!category) {
                 throw new Error('카테고리가 선택되지 않았습니다.');
             }
-
+    
             // API 요청
             const response = await PostTarot({ category });
-
+    
+            console.log("🔍 API 응답 데이터:", response.data.data); // 응답 확인
+            console.log("📌 Summary 값 확인:", response.data.data.summary);
+    
             if (response.status === 200) {
                 const tarotData: TarotData = response.data.data;
-
+    
                 // 결과 페이지로 데이터 전달
                 navigate('/tarot-result', {
                     state: {
@@ -59,7 +63,8 @@ const TarotLoading = () => {
                         firstCard: tarotData.firstCard,
                         secondCard: tarotData.secondCard,
                         thirdCard: tarotData.thirdCard,
-                        result: tarotData.result,
+                        summary: tarotData.summary,  
+                        result: tarotData.result,   
                     },
                 });
             } else {
@@ -67,7 +72,7 @@ const TarotLoading = () => {
             }
         } catch (error) {
             console.error('Error:', error);
-
+    
             Swal.fire({
                 icon: 'error',
                 title: '타로 해석 에러다냥😿',

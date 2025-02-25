@@ -74,7 +74,8 @@ export interface Result {
     firstCard: string;
     secondCard: string;
     thirdCard: string;
-    content: string;
+    summary: string;
+    result: string; 
 }
 
 export interface TarotData {
@@ -82,6 +83,7 @@ export interface TarotData {
     firstCard: string; // 첫 번째 카드
     secondCard: string; // 두 번째 카드
     thirdCard: string; // 세 번째 카드
+    summary: string;
     result: string; // 해석 내용
 }
 

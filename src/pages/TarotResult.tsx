@@ -46,7 +46,8 @@ interface LocationState {
     firstCard: string;
     secondCard: string;
     thirdCard: string;
-    result: string; // GPT에서 받은 결과 메시지
+    summary: string;  // 운세 요약
+    result: string;   // 상세 해석
 }
 
 // 22개의 카드 데이터 생성
@@ -79,8 +80,12 @@ const TarotResult = () => {
     const { setHeaderMode } = useHeaderMode();
     const location = useLocation();
     const state = location.state as LocationState | null;
-
+    useEffect(() => {
+        console.log("🔍 TarotResult state:", state);
+        console.log("📌 Summary 값 확인:", state?.summary);
+    }, [state]);
     const category = state?.category || '기본 카테고리';
+    const summary = state?.summary || '운세 요약이 없습니다.';
     const result = state?.result || '결과가 없습니다.';
     const firstCard = state?.firstCard;
     const secondCard = state?.secondCard;
@@ -90,7 +95,7 @@ const TarotResult = () => {
 
     // 매칭된 카드 가져오기
     const matchedCards = allCards.filter((card) => {
-        const firstName = firstCard?.split(' - ')[0].trim(); // DB에서 카드 이름만 추출
+        const firstName = firstCard?.split(' - ')[0].trim();
         const secondName = secondCard?.split(' - ')[0].trim();
         const thirdName = thirdCard?.split(' - ')[0].trim();
 
@@ -100,6 +105,7 @@ const TarotResult = () => {
             card.name === thirdName
         );
     });
+
 
     const handleCapture = async () => {
         if (captureRef.current) {
@@ -129,14 +135,13 @@ const TarotResult = () => {
 
     return (
         <div ref={captureRef} className="background-night">
+            {/* 🟢 카드 이미지 및 카드 이름 출력 */}
             <div style={{ marginTop: '30px' }} className="rcard-container">
                 {matchedCards.map((card) => (
-                    <img
-                        key={card.id}
-                        src={card.image}
-                        alt={card.name}
-                        className="rcard"
-                    />
+                     <div key={card.id} className="card-wrapper">
+                     <img src={card.image} alt={card.name} className="rcard" />
+                     <p className="card-name">{card.name}</p>
+                 </div>
                 ))}
             </div>
 
@@ -145,11 +150,16 @@ const TarotResult = () => {
             </div>
 
             <div className="result-container">
-                <h2>타로 카드 결과</h2>
-                <p>선택된 카드에 따른 당신의 운세는...</p>
-                <ResultBox message="" mode="tarot">
-                    <h5>{result}</h5>
-                </ResultBox>
+            <h4 className="summary-title">✨ 운세 요약 ✨</h4>
+            <div className="summary-box">
+                <p>{summary}</p>  {/* 🔍 `summary`가 정상적으로 표시되는지 확인 */}
+            </div>
+
+            <h4 className="result-title">🔮 상세 해석 🔮</h4>
+            <div className="result-box">
+                <p>{result}</p>  {/* 🔍 `result`가 정상적으로 표시되는지 확인 */}
+            </div>
+  
 
                 <div
                     className="result-imgdown"
@@ -157,7 +167,7 @@ const TarotResult = () => {
                 >
                     <Button name="이미지로 저장하기" mode="save-image" onClick={handleCapture} />
                 </div>
-            </div>cd
+            </div>
         </div>
     );
 };
