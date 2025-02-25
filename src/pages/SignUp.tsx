@@ -15,14 +15,17 @@ import Input from '../components/Input.tsx';
 import { emailValidation, nameValidation, passwordValidation } from '../utils/Validation.tsx';
 import clapcat from '../assets/clapcat.gif';
 import { AxiosResponse } from 'axios';
+import PrivacyModal from '../components/PrivacyModal.tsx';
 
 const delay = (ms: number): Promise<void> => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 const SignUp = () => {
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const [isAgreed, setIsAgreed] = useState<boolean>(false);
+    const [isTermsModalOpen, setIsTermsModalOpen] = useState<boolean>(false);
+    const [isTermsAgreed, setIsTermsAgreed] = useState<boolean>(false);
+    const [isPrivacysModalOpen, setIsPrivacyModalOpen] = useState<boolean>(false);
+    const [isPrivacyAgreed, setIsPrivacyAgreed] = useState<boolean>(false);
     const [nickname, setNickname] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -39,15 +42,24 @@ const SignUp = () => {
         setIsTimer(false);
     }
 
-    const handleOpenModal = () => {
-        setIsModalOpen(true);
+    const handleOpenTermsModal = () => {
+        setIsTermsModalOpen(true);
     };
 
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
+    const handleOpenPrivacyModal = () => {
+        setIsPrivacyModalOpen(true);
     };
 
-    const handleAgree = () => setIsAgreed(true);
+    const handleCloseTermsModal = () => {
+        setIsTermsModalOpen(false);
+    };
+
+    const handleClosePrivacyModal = () => {
+        setIsPrivacyModalOpen(false);
+    };
+
+    const handleAgreeTerms = () => setIsTermsAgreed(true);
+    const handleAgreePrivacy = () => setIsPrivacyAgreed(true);
 
     const postEmailAsync = async () => {
         const response = await postEmail(email);
@@ -111,9 +123,17 @@ const SignUp = () => {
             return;
         }
         // 이용약관 동의 여부 확인
-        if (!isAgreed) {
+        if (!isTermsAgreed) {
             Swal.fire({
                 text: '이용약관에 동의하라냥~',
+                icon: 'error',
+                confirmButtonText: '확인'
+            });
+            return;
+        }
+        if (!isPrivacyAgreed) {
+            Swal.fire({
+                text: '개인정보처리방침침에 동의하라냥~',
                 icon: 'error',
                 confirmButtonText: '확인'
             });
@@ -262,38 +282,79 @@ const SignUp = () => {
                             type='password'
                         />
                     </div>
-                     {/* ✅ 이용약관 확인 & 버튼 한 줄 정렬 (가운데 고정) */}
-                     <div className='terms-box'>
-                        <span className={isAgreed ? 'terms-confirmed' : 'terms-prompt'}>
-                            {isAgreed ? '이용약관 확인됐다옹' : '이용약관 확인하라옹'}
-                        </span>
-                        <button 
-    onClick={handleOpenModal} 
-    className={`cat-paw-button ${isAgreed ? 'checked-icon' : ''}`} 
-    disabled={isAgreed}
->
-    {!isAgreed ? (
-        <>
-            <div className="paw"></div>
-            <div className="paw"></div>
-            <div className="paw"></div>
-            <div className="paw"></div>
-            <div className="paw"></div>
-        </>
-    ) : (
-        <span className="check-mark">✔</span> 
-    )}
-</button>
+              
+                <div className='font-extrabold'>
+                    
+               {/* ✅ 이용약관 & 개인정보처리방침 (같은 박스 안에 위아래 배치) */}
+<div className='terms-box'>
 
+{/* 이용약관 */}
+<div className='terms-item'>
+    <span className={isTermsAgreed ? 'terms-confirmed' : 'terms-prompt'}>
+        {isTermsAgreed ? '이용약관 동의' : '이용약관 동의 (필수)'}
+    </span>
+    <button 
+        onClick={handleOpenTermsModal} 
+        className={`cat-paw-button ${isTermsAgreed ? 'checked-icon' : ''}`} 
+        disabled={isTermsAgreed}
+    >
+        {!isTermsAgreed ? (
+            <>
+                <div className="paw"></div>
+                <div className="paw"></div>
+                <div className="paw"></div>
+                <div className="paw"></div>
+                <div className="paw"></div>
+            </>
+        ) : (
+            <span className="check-mark">✔</span> 
+        )}
+    </button>
+</div>
+
+{/* 개인정보처리방침 */}
+<div className='terms-item'>
+    <span className={isPrivacyAgreed ? 'terms-confirmed' : 'terms-prompt'}>
+        {isPrivacyAgreed ? '개인정보처리방침 동의' : '개인정보처리방침 동의 (필수)'}
+    </span>
+    <button 
+        onClick={handleOpenPrivacyModal} 
+        className={`cat-paw-button ${isPrivacyAgreed ? 'checked-icon' : ''}`} 
+        disabled={isPrivacyAgreed}
+    >
+        {!isPrivacyAgreed ? (
+            <>
+                <div className="paw"></div>
+                <div className="paw"></div>
+                <div className="paw"></div>
+                <div className="paw"></div>
+                <div className="paw"></div>
+            </>
+        ) : (
+            <span className="check-mark">✔</span> 
+        )}
+    </button>
+                        </div>
                     </div>
                 </div>
+                </div>
             </ResultBigBox>
+
             <div id='signup-confirm'>
-                <Button name='가입하러가자냥🐾' mode='login' onClick={() => handleComplete(nickname, password, email)} />
+            <Button 
+    name='가입하러가자냥🐾' 
+    mode='login' 
+    onClick={() => {
+        if (!isTermsAgreed || !isPrivacyAgreed) return;
+        console.log('가입 진행');
+    }} 
+/>
             </div>
-            {isModalOpen && (
-                <TermsModal onClose={handleCloseModal} onAgree={handleAgree} />
-            )}
+
+            {isTermsModalOpen && <TermsModal onClose={handleCloseTermsModal} onAgree={handleAgreeTerms} />}
+            {isPrivacysModalOpen && <PrivacyModal onClose={handleClosePrivacyModal} onAgree={handleAgreePrivacy} />} 
+
+ 
             <Footer />
         </div>
     );
