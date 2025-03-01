@@ -13,7 +13,7 @@ import { getDreams } from '../services/DreamService.ts';
 import { GetsApiResponse } from '../interfaces/dream.ts';
 import HotDream from '../components/HotDream.tsx';
 import { useHeaderMode } from '../hooks/HeaderManager.tsx';
-import useReload from '../hooks/useReload .tsx';
+import useReload from '../hooks/useReload.tsx';
 import { useMember } from '../hooks/MemberManager.tsx';
 import { AxiosRequestConfig } from 'axios';
 import { getMember } from '../services/MemberService.ts';
