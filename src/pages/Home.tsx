@@ -13,7 +13,7 @@ import { getDreams } from '../services/DreamService.ts';
 import { GetsApiResponse } from '../interfaces/dream.ts';
 import HotDream from '../components/HotDream.tsx';
 import { useHeaderMode } from '../hooks/HeaderManager.tsx';
-import useReload from '../hooks/useReload .tsx';
+import useReload from '../hooks/useReload.tsx';
 import { useMember } from '../hooks/MemberManager.tsx';
 import { AxiosRequestConfig } from 'axios';
 import { getMember } from '../services/MemberService.ts';
@@ -35,10 +35,19 @@ const Home = () => {
     };
 
     const getMemberAsync = async () => {
-        const response = await getMember(accessToken);
-        setResponseMember(response.data);
-    }
-
+        try {
+            console.log("Fetching member with token:", authorization);
+            const response = await getMember(accessToken);
+            console.log("Member API Response:", response); // 전체 응답 확인
+            console.log("Member Data:", response.data); // 실제 데이터 확인
+            setResponseMember(response.data);
+            console.log(new Date(1740843386 * 1000)); 
+            console.log(new Date(1740843386 * 1000)); 
+        } catch (error) {
+            console.error("Error fetching member:", error);
+        }
+    };
+    
     setName(responseMember?.data.nickName as string);
     setProfileUrl(responseMember?.data.profileUrl as string);
 
@@ -51,10 +60,14 @@ const Home = () => {
 
     useEffect(() => {
         getDreamsAsync();
-        if (login) {
+    }, []);
+    
+    useEffect(() => {
+        if (login && authorization) {
             getMemberAsync();
         }
-    }, [])
+    }, [login, authorization]);
+    
 
     const totalElements = responseDreams?.pageInfo.totalElements as number;
 

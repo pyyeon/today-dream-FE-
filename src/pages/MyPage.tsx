@@ -117,7 +117,8 @@ const MyPage = () => {
     console.log(`마이페이지 : ${accessToken?.headers?.Authorization}`);
 
     // 스탬프 개수를 증가시키는 함수
-    const pictures: [] = responseMember?.data.pictures as [];
+    const pictures = responseMember?.data?.pictures ?? [];
+console.log("사진 개수:", pictures.length);
     const email: string = responseMember?.data.email as string;
     const name: string = responseMember?.data.nickName as string;
     const memberId: number = responseMember?.data.memberId as number;

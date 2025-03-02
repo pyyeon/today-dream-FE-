@@ -1,6 +1,6 @@
 import { login, postData, getData, patchData, deleteData } from "./index.ts";
 import { LoginResponse } from '../interfaces/member.ts';
-import { AxiosResponse, AxiosRequestConfig } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 interface statusCode {
     status: number;
@@ -46,10 +46,11 @@ export const postVerifyEmail = async (email: string, code: string) => {
     return response;
 }
 
-export const getMember = async (authorization: AxiosRequestConfig): Promise<AxiosResponse> => {
-    const response = await getData<AxiosResponse>(GET_MEMBER_URL, authorization);
-    return response; 
-}
+export const getMember = async (authorization: AxiosRequestConfig = {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+}): Promise<AxiosResponse> => {
+    return await getData<AxiosResponse>(GET_MEMBER_URL, authorization);
+};
 
 export const updateName = async (memberId: number, nickName:string, memberStatus:string, authorization: AxiosRequestConfig): Promise<AxiosResponse> => {
     const url = REGISTER_URL + `/${memberId}`;
@@ -62,9 +63,11 @@ export const patchPassword = async (memberId: number, password:string, newPasswo
     const response = await patchData<AxiosResponse>(url, {password, newPassword}, authorization);
     return response; 
 }
+
 export const deleteMember = async (memberId: number, authorization: AxiosRequestConfig): Promise<AxiosResponse> => {
     const url = REGISTER_URL + `/${memberId}`;
     const response = await deleteData<AxiosResponse>(url, authorization);
     return response; 
-}
+};
+
 

@@ -25,7 +25,6 @@ import TarotLoading from '../pages/TarotLoading.tsx';
 import TarotResult from '../pages/TarotResult.tsx';
 import TarotPage from '../pages/Tarot.tsx';
 
-
 const App = () => {
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {

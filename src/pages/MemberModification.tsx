@@ -223,7 +223,7 @@ const MemberModification = () => {
                         onClick={handleLeave} // 클릭 시 handleLeave 함수 호출
                         className='font-normal'
                     >
-                        ㅎ..회원 탈퇴....
+                    회원 탈퇴
                     </DeleteMember>
                 </InputArea_center>
             </ContentArea_col>
