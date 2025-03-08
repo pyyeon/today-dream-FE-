@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TodayDream</string>
+    <string name="title_activity_main">TodayDream</string>
+    <string name="package_name">com.dreamhigh.todaydream</string>
+    <string name="custom_url_scheme">com.dreamhigh.todaydream</string>
+</resources>
